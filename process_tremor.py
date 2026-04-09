@@ -22,7 +22,7 @@ def main():
     t_start = datetime.datetime(2023,8,3)
     t_end = datetime.datetime(2024,7,30)
     days = (t_end - t_start).days - 4
-    files = [i for i in range(days) if not Path(f"results_all_z_new\\{i}.npz").exists()]
+    files = [i for i in range(days) if not Path(f"results_all_z_new/{i}.npz").exists()]
     print(files)
     possible_dates = [t_start + datetime.timedelta(days = i) for i in files]
     with Pool() as p:
@@ -138,7 +138,7 @@ def est_signal(t):
             # GHT_dict[(freqmin, freqmax)] = {'t': t_all,
             #                                 'GHT': min_all,
             #                                 'PSD': Pxx_all} #saves entire PSD
-    np.savez_compressed("results_all_z_new\\"+ str((t_start - datetime.datetime(2023,8,3)).days), times = t_all, GHT = GHT_all)
+    np.savez_compressed("results_all_z_new/"+ str((t_start - datetime.datetime(2023,8,3)).days), times = t_all, GHT = GHT_all)
     # TODO: delete as much as possible to save memory
     del client
     del t_start
