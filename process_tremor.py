@@ -134,7 +134,6 @@ def est_signal(t):
                 GHT_all[idx1, idx2, :] = min_all
             except:
                 GHT_all[idx1, idx2, :] = np.full(shape=144, fill_value=np.nan, dtype=float)
-                print('ah')
             # GHT_dict[(freqmin, freqmax)] = {'t': t_all,
             #                                 'GHT': min_all,
             #                                 'PSD': Pxx_all} #saves entire PSD
